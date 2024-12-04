@@ -27,6 +27,7 @@ public:
 	bool addOrder(string, int, string&);
 	void displayOrders() const;
 	int linearSearch(string);
+	Order& getOrder(int);
 	
 	
 

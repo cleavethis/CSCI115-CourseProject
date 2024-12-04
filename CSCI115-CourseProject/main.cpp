@@ -9,7 +9,7 @@ using namespace std;
 
 int main() {
 	
-	/*OrderManager manager;
+	OrderManager manager;
 	string dest = "New York";
 
 	manager.addOrder("ORD1", 1, dest);
@@ -37,7 +37,7 @@ int main() {
 
 	list.searchList("ORD3");
 
-	*/
+	
 	
 	
 
