@@ -27,7 +27,7 @@ int main() {
 		cout << "Order destination: " << manager.getOrder(foundIndex).orderDestination << "\n";
 
 	}
-	*/
+	
 
 	OrderList list;
 	list.appendNode("ORD1", 1, "New York");
@@ -35,6 +35,8 @@ int main() {
 	list.displayList();
 
 	list.searchList("ORD3");
+
+	*/
 	
 	
 

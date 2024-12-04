@@ -12,6 +12,8 @@ private:
 		int orderPriority;
 		string orderDestination;
 		Node* next;
+		// Previous pointer for double linked list
+		Node* prev;
 
 	};
 
@@ -25,6 +27,9 @@ public:
 	void displayList() const;
 	void searchList(string);
 	void printNode(Node*);
+	void removeNode(string);
+	void reverseDisplay() const;
+	void updatePriority(string,int);
 
 
 
