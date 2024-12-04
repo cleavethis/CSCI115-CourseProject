@@ -16,7 +16,8 @@ public:
 	string orderDestination;
 
 	vector<Node*> next;
-	Node(string orderID, int orderPriority, string orderDestination, int level) : orderID(orderID), orderPriority(orderPriority), orderDestination(orderDestination), next(level + 1, nullptr) {}
+	Node(string orderID, int orderPriority, string orderDestination, int level) : orderID(orderID), 
+		orderPriority(orderPriority), orderDestination(orderDestination), next(level + 1, nullptr) {}
 };
 
 class OrderSkipList
