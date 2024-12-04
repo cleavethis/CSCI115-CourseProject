@@ -58,3 +58,32 @@ void OrderSkipList::insert(string orderID, int orderPriority, string orderDestin
 	}
 
 }
+
+bool OrderSkipList::search(string searchID)
+{
+	// pointer to start of list
+	Node* current = head;
+
+	// start at highest level and move down
+	for (int i = level; i >= 0; i--)
+	{
+		while (current->next[i] and current->next[i]->orderID < searchID)
+		{
+			current = current->next[i];
+
+		}
+	}
+
+	current = current->next[0];
+
+	if (current != nullptr && current->orderID == searchID)
+	{
+		cout << "Order: " << current->orderID << current->orderPriority << current->orderDestination;
+		return true;
+	}
+	else  // Order not found
+	{
+		cout << "Order " << searchID << " not found.\n";
+		return false;
+	}
+}
