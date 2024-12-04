@@ -1,5 +1,6 @@
 // Rick Richmond
 #include "OrderManager.h"
+#include "OrderList.h"
 #include <iostream>
 #include <string>
 
@@ -7,7 +8,7 @@ using namespace std;
 
 int main() {
 	
-	OrderManager manager;
+	/*OrderManager manager;
 	string dest = "New York";
 
 	manager.addOrder("ORD1", 1, dest);
@@ -26,6 +27,15 @@ int main() {
 		cout << "Order destination: " << manager.getOrder(foundIndex).orderDestination << "\n";
 
 	}
+	*/
+
+	OrderList list;
+	list.appendNode("ORD1", 1, "New York");
+	list.appendNode("ORD2", 3, "California");
+	list.displayList();
+
+	list.searchList("ORD3");
+	
 	
 
 
