@@ -24,7 +24,7 @@ private:
 
 public:
 	OrderManager() : orderCount(0) {}
-	bool addOrder(string, int, string&);
+	bool addOrder(string, int, string);
 	void displayOrders() const;
 	int linearSearch(string);
 	Order& getOrder(int);

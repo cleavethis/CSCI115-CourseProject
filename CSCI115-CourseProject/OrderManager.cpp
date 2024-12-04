@@ -2,7 +2,7 @@
 using namespace std;
 
 
-bool OrderManager::addOrder(string orderID, int orderPriority, string& orderDestination)
+bool OrderManager::addOrder(string orderID, int orderPriority, string orderDestination)
 {
 	if (orderCount >= MAX_ORDERS) {
 		cout << "Order list full, can't add a new order.";
