@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Graph.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OrderBST.cpp" />
     <ClCompile Include="OrderList.cpp" />
@@ -134,6 +135,7 @@
     <ClCompile Include="OrderSkipList.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Graph.h" />
     <ClInclude Include="OrderBST.h" />
     <ClInclude Include="OrderList.h" />
     <ClInclude Include="OrderManager.h" />

@@ -2,6 +2,8 @@
 #include "OrderManager.h"
 #include "OrderList.h"
 #include "OrderSkipList.h"
+#include "OrderBST.h"
+#include "Graph.h"
 #include <iostream>
 #include <string>
 
@@ -105,6 +107,29 @@ int main() {
 	cout << "Sorted orders: \n\n";
 	manager.displayOrders();
 	cout << "*****End of quick sort*****\n\n";
+
+	// Create the graph
+	Graph g;
+
+	// Add edges
+	g.addEdge("a", "b", 10);
+	g.addEdge("a", "c", 15);
+	g.addEdge("b", "i", 11);
+	g.addEdge("b", "d", 12);
+	g.addEdge("c", "e", 10);
+	g.addEdge("d", "h", 14);
+	g.addEdge("e", "g", 4);
+	g.addEdge("e", "f", 5);
+	g.addEdge("f", "g", 3);
+	g.addEdge("g", "h", 8);
+	g.addEdge("h", "i", 7);
+	g.addEdge("i", "j", 6);
+	g.addEdge("j", "a", 6);
+
+	// Display the graph
+	g.display();
+
+
 
 
 
