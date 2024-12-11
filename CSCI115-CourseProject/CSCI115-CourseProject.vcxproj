@@ -128,11 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="OrderBST.cpp" />
     <ClCompile Include="OrderList.cpp" />
     <ClCompile Include="OrderManager.cpp" />
     <ClCompile Include="OrderSkipList.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="OrderBST.h" />
     <ClInclude Include="OrderList.h" />
     <ClInclude Include="OrderManager.h" />
     <ClInclude Include="OrderSkipList.h" />
