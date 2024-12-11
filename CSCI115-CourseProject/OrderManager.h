@@ -17,7 +17,7 @@ private:
 
 	};
 
-	static const int MAX_ORDERS = 10000;
+	static const int MAX_ORDERS = 100;
 	Order orders[MAX_ORDERS];
 	int orderCount;
 
@@ -29,14 +29,18 @@ public:
 	void displayOrders() const;
 	int linearSearch(string);
 	Order& getOrder(int);
+	Order* getOrders() {
+		return orders;
+	}
 	void bubbleSort(Order*);
 	void selectionSort(Order*);
 	void merge(Order*, int, int, int);
-	void mergeSortUtil(Order*, int, int);
+	void mergeSortHelper(Order*, int, int);
 	void mergeSort(Order*);
 	int partition(Order*, int, int);
-	void quickSortUtil(Order*, int, int);
+	void quickSortHelper(Order*, int, int);
 	void quickSort(Order*);
+	void scrambleOrders();
 
 
 

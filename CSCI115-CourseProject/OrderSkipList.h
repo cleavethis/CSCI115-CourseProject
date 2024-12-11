@@ -30,6 +30,7 @@ public:
 	void insert(string, int, string);
 	bool search(string);
 	void deleteNode(string);
+	void display();
 
 };
 #endif  ORDERSKIPLIST_H

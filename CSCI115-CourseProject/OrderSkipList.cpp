@@ -50,7 +50,7 @@ void OrderSkipList::insert(string orderID, int orderPriority, string orderDestin
 
 		cout << "Order: " << orderID << "\n"
 			 << orderPriority << "\n" << orderDestination << "\n" 
-			 << "inserted into list.\n";
+			 << "inserted into list.\n\n";
 	}
 
 	else {
@@ -125,4 +125,19 @@ void OrderSkipList::deleteNode(string orderID) {
 		cout << "Order " << orderID << " not found, deletion not performed.\n";
 	}
 }
+// Display all levels and elements
+void OrderSkipList::display() {
+	cout << "\nDisplaying Skip List:\n";
 
+	for (int i = level; i >= 0; i--) {
+		Node* current = head->next[i];
+		cout << "Level " << i << ": ";
+
+		
+		while (current != nullptr) {
+			cout << "[" << current->orderID << ", " << current->orderPriority << ", " << current->orderDestination << "] -> ";
+			current = current->next[i];
+		}
+		cout << "NULL\n";
+	}
+}

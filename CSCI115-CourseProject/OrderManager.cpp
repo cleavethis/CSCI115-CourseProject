@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <string>
+#include <algorithm>
 using namespace std;
 
 
@@ -114,19 +115,19 @@ void OrderManager::displayOrders() const
 	 delete[] rightArray;
  }
 // Helper function to faciliate mergeSort
- void OrderManager::mergeSortUtil(Order* orders, int left, int right) {
+ void OrderManager::mergeSortHelper(Order* orders, int left, int right) {
 	 if (left < right) {
 		 int mid = left + (right - left) / 2;
 
-		 mergeSortUtil(orders, left, mid);
-		 mergeSortUtil(orders, mid + 1, right);
+		 mergeSortHelper(orders, left, mid);
+		 mergeSortHelper(orders, mid + 1, right);
 
 		 merge(orders, left, mid, right);
 	 }
  }
 
  void OrderManager::mergeSort(Order* orders) {
-	 mergeSortUtil(orders, 0, orderCount - 1);
+	 mergeSortHelper(orders, 0, orderCount - 1);
  }
 
  int OrderManager::partition(Order* orders, int low, int high) {
@@ -151,17 +152,17 @@ void OrderManager::displayOrders() const
 	 return i + 1;
  }
 
- void OrderManager::quickSortUtil(Order* orders, int low, int high) {
+ void OrderManager::quickSortHelper(Order* orders, int low, int high) {
 	 if (low < high) {
 		 int pi = partition(orders, low, high);
 
-		 quickSortUtil(orders, low, pi - 1);
-		 quickSortUtil(orders, pi + 1, high);
+		 quickSortHelper(orders, low, pi - 1);
+		 quickSortHelper(orders, pi + 1, high);
 	 }
  }
 
  void OrderManager::quickSort(Order* orders) {
-	 quickSortUtil(orders, 0, orderCount - 1);
+	 quickSortHelper(orders, 0, orderCount - 1);
  }
 
 
@@ -173,7 +174,7 @@ void OrderManager::displayOrders() const
 	 const int MIN_PRIORITY = 1;   // Minimum priority value
 	 const int MAX_PRIORITY = 5;   // Maximum priority value
 
-	 for (int i = 0; i < MAX_ORDERS && i < 10000; ++i) {
+	 for (int i = 0; i < MAX_ORDERS && i < 100; ++i) {
 		 // Generate orderID: "ORD1", "ORD2", ...
 		 orders[i].orderID = "ORD" + to_string(i + 1);
 
@@ -186,6 +187,16 @@ void OrderManager::displayOrders() const
 	 }
 
 	 orderCount = MAX_ORDERS;  // Set the current order count to MAX_ORDERS
+ }
+ // Helper function to shuffle orders between sorts
+ void OrderManager::scrambleOrders() {
+	 srand(static_cast<unsigned>(time(0))); 
+	 for (int i = 0; i < orderCount; ++i) {
+		 // Generate a random index between i and orderCount - 1
+		 int randomIndex = i + rand() % (orderCount - i);
+		 // Swap orders[i] and orders[randomIndex]
+		 swap(orders[i], orders[randomIndex]);
+	 }
  }
 
 
