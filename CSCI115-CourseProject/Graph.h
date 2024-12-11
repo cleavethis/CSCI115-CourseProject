@@ -5,18 +5,19 @@
 #include <list>
 #include <string>
 using namespace std;
+using AdjList = unordered_map<string, list<pair<string, int>>>;
 
 class Graph {
+private:
+    
+    AdjList adjList;
+
 public:
    
-    using AdjList = unordered_map<string, list<pair<string, int>>>;
-
-    Graph() = default;
+    Graph();
     void addEdge(const string&, const string&, int);
     void display() const;
-
-private:
-    AdjList adjList;  
+    
 };
 
 #endif // GRAPH_H
