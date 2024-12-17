@@ -111,10 +111,20 @@ OrderBST::Node* OrderBST::search(const string& id) const {
     return search(root, id);
 }
 
+// Overloaded function helper
 
 OrderBST::Node* OrderBST::search(Node* node, const string& id) const {
-    // If no node exists, or order found, return
+    // If no node exists, or order found, proceed
     if (!node || node->orderID == id) {
+        if (node) { // If node exists (target found), print details
+            cout << "Order found!\n";
+            cout << "Order ID: " << node->orderID << "\n";
+            cout << "Order priority: " << node->orderPriority << "\n";
+            cout << "Order destination: " << node->orderDestination << "\n";
+        }
+        else {
+            cout << "Order does not exist!\n";
+        }
         return node;
     }
     // Recrusively search left subtree if id is less than current id
@@ -131,6 +141,9 @@ OrderBST::Node* OrderBST::search(Node* node, const string& id) const {
 void OrderBST::deleteNode(const string& id) {
     root = deleteNode(root, id);
 }
+
+// Overloaded function helper
+
 OrderBST::Node* OrderBST::deleteNode(Node* node, const string& id) {
     // Empty tree, so return 
     if (!node) return nullptr;
@@ -212,10 +225,11 @@ OrderBST::Node* OrderBST::findMin(Node* node) const {
     return node;
 }
 
+// Ternary operator to return height of node
 int OrderBST::getHeight(Node* node) const {
     return node ? node->height : 0;
 }
-
+// Ternary operator to return difference of heights
 int OrderBST::getBalanceFactor(Node* node) const {
     return node ? getHeight(node->left) - getHeight(node->right) : 0;
 }
@@ -255,31 +269,32 @@ OrderBST::Node* OrderBST::rightRotate(Node* z) {
 }
 
 OrderBST::Node* OrderBST::rebalance(Node* node, const string& id) {
+    // Get the balance factor
     int balanceFactor = getBalanceFactor(node);
 
     // Left-heavy
-    if (balanceFactor > 1 && id < node->left->orderID) {
-        return rightRotate(node);
+    if (balanceFactor > 1) {
+        if (node->left && id < node->left->orderID) {
+            return rightRotate(node);
+        }
+        if (node->left && id > node->left->orderID) {
+            node->left = leftRotate(node->left);
+            return rightRotate(node);
+        }
     }
 
     // Right-heavy
-    if (balanceFactor < -1 && id > node->right->orderID) {
-        return leftRotate(node);
+    if (balanceFactor < -1) {
+        if (node->right && id > node->right->orderID) {
+            return leftRotate(node);
+        }
+        if (node->right && id < node->right->orderID) {
+            node->right = rightRotate(node->right);
+            return leftRotate(node);
+        }
     }
 
-    // Left-right case
-    if (balanceFactor > 1 && id > node->left->orderID) {
-        node->left = leftRotate(node->left);
-        return rightRotate(node);
-    }
-
-    // Right-left case
-    if (balanceFactor < -1 && id < node->right->orderID) {
-        node->right = rightRotate(node->right);
-        return leftRotate(node);
-    }
-
-    // No rotations needed
-    return node; 
+    return node; // No rotations needed
 }
+
 

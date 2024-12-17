@@ -107,14 +107,27 @@ int main() {
 	cout << "Sorted orders: \n\n";
 	manager.displayOrders();
 	cout << "*****End of quick sort*****\n\n";
-
-	//OrderBST newTree;
+	cout << "-----AVL Tree implementation-----\n\n";
+	// Create new ALV tree and populate with data (see OrderBST.cpp constructor)
+	OrderBST newTree;
+	cout << "Searching for ORD32\n";
+	newTree.search("ORD32");
+	cout << "\nSearching for ORD20\n";
+	newTree.search("ORD20");
+	cout << "\nSearching for ORD49\n";
+	newTree.search("ORD49");
+	cout << "\nSearching for ORD51\n";
+	newTree.search("ORD51");
+	cout << "\nSearching for ORD56\n";
+	newTree.search("ORD56");
+	cout << "\nSearching for ORD71\n";
+	newTree.search("ORD71");
 	
 
-
+	cout << "\n-----Graph implmentation-----";
 	// Create the graph
 	Graph g;
-	cout << "Graph adjacency list: \n\n";
+	cout << "\n\nGraph adjacency list: \n";
 	g.display();
 	cout << "\nBreadth first traversal from A: \n\n";
 	g.BFS("a");
@@ -122,10 +135,12 @@ int main() {
 	cout << "Depth first traversal from A: \n\n";
 	g.DFS("a");
 	cout << "\n\n";
-	cout << "Using Dijkstra's to find shortest path: \n\n";
+	cout << "-----Using Dijkstra's to find shortest path-----\n\n";
 	g.dijkstra("a");
 	g.printShortestPath("e");
+	cout << endl;
 	g.printShortestPath("h");
+	cout << endl;
 	g.printShortestPath("f");
 
 	return 0;
