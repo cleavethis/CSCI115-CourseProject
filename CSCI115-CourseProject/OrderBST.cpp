@@ -1,24 +1,81 @@
 #include "OrderBST.h"
 
-OrderBST::OrderBST() : root(nullptr) {}
+// Constructor adds provided data into tree
+OrderBST::OrderBST() : root(nullptr) {
+    insert("ORD1", 1, "Location A");
+    insert("ORD2", 2, "Location B");
+    insert("ORD3", 3, "Location C");
+    insert("ORD4", 4, "Location D");
+    insert("ORD5", 5, "Location E");
+    insert("ORD6", 1, "Location F");
+    insert("ORD7", 2, "Location G");
+    insert("ORD8", 3, "Location H");
+    insert("ORD9", 4, "Location I");
+    insert("ORD10", 5, "Location J");
+    insert("ORD11", 1, "Location K");
+    insert("ORD12", 2, "Location L");
+    insert("ORD13", 3, "Location M");
+    insert("ORD14", 4, "Location N");
+    insert("ORD15", 5, "Location O");
+    insert("ORD16", 1, "Location P");
+    insert("ORD17", 2, "Location Q");
+    insert("ORD18", 3, "Location R");
+    insert("ORD19", 4, "Location S");
+    insert("ORD20", 5, "Location T");
+    insert("ORD21", 1, "Location U");
+    insert("ORD22", 2, "Location V");
+    insert("ORD23", 3, "Location W");
+    insert("ORD24", 4, "Location X");
+    insert("ORD25", 5, "Location Y");
+    insert("ORD26", 1, "Location Z");
+    insert("ORD27", 2, "Location A");
+    insert("ORD28", 3, "Location B");
+    insert("ORD29", 4, "Location C");
+    insert("ORD30", 5, "Location D");
+    insert("ORD31", 1, "Location E");
+    insert("ORD32", 2, "Location F");
+    insert("ORD33", 3, "Location G");
+    insert("ORD34", 4, "Location H");
+    insert("ORD35", 5, "Location I");
+    insert("ORD36", 1, "Location J");
+    insert("ORD37", 2, "Location K");
+    insert("ORD38", 3, "Location L");
+    insert("ORD39", 4, "Location M");
+    insert("ORD40", 5, "Location N");
+    insert("ORD41", 1, "Location O");
+    insert("ORD42", 2, "Location P");
+    insert("ORD43", 3, "Location Q");
+    insert("ORD44", 4, "Location R");
+    insert("ORD45", 5, "Location S");
+    insert("ORD46", 1, "Location T");
+    insert("ORD47", 2, "Location U");
+    insert("ORD48", 3, "Location V");
+    insert("ORD49", 4, "Location W");
+    insert("ORD50", 5, "Location X");
+}
 
 
 void OrderBST::insert(string id, int priority, string destination) {
     insert(root, id, priority, destination);
 }
 
+// Overloaded function helper
+
 void OrderBST::insert(Node*& node, string id, int priority, string destination) {
+    // If root doesnt exist, new node is root
     if (!node) {
         node = new Node(id, priority, destination);
         return;
     }
-
+    // Insert left if new ID is less than root
     if (id < node->orderID) {
         insert(node->left, id, priority, destination);
     }
+    // Insert right if new ID is greather than root
     else if (id > node->orderID) {
         insert(node->right, id, priority, destination);
     }
+    // If neither case, output duplicate ID statement
     else {
         cout << "Duplicate order ID (" << id << ") is not allowed.\n";
         return;

@@ -11,6 +11,7 @@
 #include <climits>
 
 using namespace std;
+// Map used to implement Adjacency list to store vertices and edges
 using AdjList = unordered_map<string, list<pair<string, int>>>;
 
 class Graph {

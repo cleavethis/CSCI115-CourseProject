@@ -7,7 +7,7 @@ using namespace std;
 
 class OrderBST {
 private:
-
+    // Use a struct to store all relevant data of each element
     struct Node {
         string orderID;
         int orderPriority;

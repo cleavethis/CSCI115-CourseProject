@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-
+// Graph constructor creates representation of provided data
 
 Graph::Graph() {
 

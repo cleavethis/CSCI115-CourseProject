@@ -108,9 +108,25 @@ int main() {
 	manager.displayOrders();
 	cout << "*****End of quick sort*****\n\n";
 
+	//OrderBST newTree;
+	
+
+
 	// Create the graph
 	Graph g;
+	cout << "Graph adjacency list: \n\n";
 	g.display();
+	cout << "\nBreadth first traversal from A: \n\n";
+	g.BFS("a");
+	cout << "\n\n";
+	cout << "Depth first traversal from A: \n\n";
+	g.DFS("a");
+	cout << "\n\n";
+	cout << "Using Dijkstra's to find shortest path: \n\n";
+	g.dijkstra("a");
+	g.printShortestPath("e");
+	g.printShortestPath("h");
+	g.printShortestPath("f");
 
 	return 0;
 }
